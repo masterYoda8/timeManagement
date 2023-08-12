@@ -1,19 +1,29 @@
 package org.acme.timeManagement;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id")
     int id;
-    String name;
+
+    @Column(name="first_name")
+    String firstName;
+
+    @Column(name="last_name")
+    String lastName;
+
+    @Column(name="email")
     String email;
 }
